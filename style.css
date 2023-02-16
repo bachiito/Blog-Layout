@@ -1,0 +1,186 @@
+:root {
+  --clr-text: hsl(0, 0%, 27%);
+  --clr-darkest: hsl(0, 0%, 0%);
+  --clr-light: hsl(0, 0%, 95%);
+  --clr-highlight: hsl(47, 100%, 50%);
+}
+
+/* =============
+  RESET
+============= */
+
+html {
+  font-family: Cambria, Cochin, Georgia, "Times New Roman", Times, serif;
+  font-size: 1.25rem;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+}
+
+figure {
+  margin: 0;
+}
+
+img {
+  display: block;
+  min-height: 200px;
+  width: 100%;
+  object-fit: cover;
+  object-position: bottom center;
+}
+
+/* =============
+  LAYOUT
+============= */
+
+.d-none {
+  display: none;
+}
+
+.post {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem 3rem;
+  width: min(62.5rem, 100% - 2rem);
+  margin-block: 2rem;
+  margin-inline: auto;
+}
+
+.post > * {
+  grid-column: 2 / -2;
+}
+
+.post__figure {
+  grid-column: 1 / -1;
+}
+
+.post__quote-container {
+  grid-column: 1 / -1;
+}
+
+.post__quote-container:last-child {
+  margin: 0;
+}
+
+.tip__body {
+  padding: 1em;
+  margin-block-start: 1rem;
+  background-color: var(--clr-light);
+}
+
+/* =============
+  TYPOGRAPHY
+============= */
+
+h2 {
+  font-size: clamp(2.5rem, 3.5vw, 5rem);
+  font-style: italic;
+  font-weight: 100;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+  line-height: 1.8;
+}
+
+a {
+  color: var(--clr-darkest);
+  text-decoration: underline wavy var(--clr-highlight);
+}
+
+.post__quote {
+  font-size: clamp(1.75rem, 3.5vw, 3.75rem);
+  font-style: italic;
+  text-align: center;
+  margin: 0;
+}
+
+.post__figcaption {
+  font-size: 0.65rem;
+}
+
+/* =============
+  BUTTONS
+============= */
+
+.open-tip {
+  padding: 0.25em 0.75em;
+  border: none;
+  border-radius: 10em;
+  background-color: var(--clr-highlight);
+}
+
+.open-tip:active {
+  opacity: 0.75;
+}
+
+/* ==================
+  RESPONSIVENESS
+================== */
+
+@media (width >= 400px) and (width <= 499px) {
+  .post {
+    width: min(62.5rem, 100% - 5rem);
+  }
+}
+
+@media (width >= 500px) and (width <= 849px) {
+  .post {
+    width: min(62.5rem, 100% - 10rem);
+  }
+}
+
+@media (width >= 850px) {
+  .post {
+    grid-template-columns: 1fr 4fr 1.65fr;
+  }
+
+  figure {
+    margin: 1rem 3rem;
+  }
+}
+
+@media (width >= 1270px) {
+  .d-none {
+    display: block;
+  }
+
+  .tip {
+    padding: 1em;
+    background-color: var(--clr-light);
+  }
+
+  .tip-left {
+    grid-column: 1 / 2;
+    text-align: end;
+    border-inline-end: 2px solid var(--clr-highlight);
+  }
+
+  .tip-right {
+    grid-column: -1 / -2;
+    text-align: start;
+    border-inline-start: 2px solid var(--clr-highlight);
+  }
+
+  .tip-long {
+    grid-row: span 5;
+  }
+
+  .tip__body {
+    padding: 0;
+    margin: 0;
+  }
+
+  .open-tip {
+    display: none;
+  }
+}
